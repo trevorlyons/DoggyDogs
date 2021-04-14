@@ -9,13 +9,12 @@ import Foundation
 import Combine
 
 protocol DogDetailsRepositoryProtocol {
-    func getDogs() -> AnyPublisher<DogDetailsModel, Error>
+    func getDogDetails(for breed: String) -> AnyPublisher<DogDetailsModel, Error>
 }
 
 struct DogDetailsRepository: DogDetailsRepositoryProtocol {
     
-    func getDogs() -> AnyPublisher<DogDetailsModel, Error> {
-        // TODO: networking
-        return AnyPublisher(Fail<DogDetailsModel, Error>(error: NSError()))
+    func getDogDetails(for breed: String) -> AnyPublisher<DogDetailsModel, Error> {
+        return DogService.getDogDetails(for: breed)
     }
 }

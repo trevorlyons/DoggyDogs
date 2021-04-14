@@ -15,7 +15,6 @@ protocol DogListRepositoryProtocol {
 struct DogListRepository: DogListRepositoryProtocol {
     
     func getDogs() -> AnyPublisher<DogsListModel, Error> {
-        // TODO: networking
-        return AnyPublisher(Fail<DogsListModel, Error>(error: NSError()))
+        return DogService.getDogsList()
     }
 }
