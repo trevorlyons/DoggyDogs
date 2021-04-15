@@ -17,19 +17,35 @@ class DogDetailsViewModel: ObservableObject {
     }
     
     @Published private(set) var state: State = .loading(true)
-    private(set) lazy var dogs = [String: [String]]()
+    private(set) lazy var dogImages = [String]()
     private lazy var storage = Set<AnyCancellable>()
-    private let repository: DogListRepositoryProtocol
+    private let repository: DogDetailsRepositoryProtocol
+    private let breed: String
     
     // MARK: Initialiser
     
-    init(repository: DogListRepositoryProtocol = DogListRepository()) {
+    init(repository: DogDetailsRepositoryProtocol = DogDetailsRepository(), breed: String) {
         self.repository = repository
+        self.breed = breed
     }
     
     // MARK: Public Methods
     
     func loadBreedImages() {
-
+        self.state = .loading(true)
+        repository.getDogDetails(for: breed)
+            .sink { [weak self] completion in
+                self?.state = .loading(false)
+                switch completion {
+                case .failure(let error):
+                    self?.state = .failure(error)
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] response in
+                self?.dogImages = response.message
+                self?.state = .loaded
+            }
+            .store(in: &storage)
     }
 }

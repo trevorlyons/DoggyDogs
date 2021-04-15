@@ -9,5 +9,5 @@ import Foundation
 
 struct DogDetailsModel: Decodable {
     let message: [String]
-    let status: Bool
+    let status: String
 }

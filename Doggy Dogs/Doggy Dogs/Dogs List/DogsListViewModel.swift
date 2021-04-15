@@ -30,6 +30,20 @@ class DogsListViewModel: ObservableObject {
     // MARK: Public Methods
     
     func loadDogs() {
-
+        state = .loading(true)
+        repository.getDogs()
+            .sink { [weak self] completion in
+                self?.state = .loading(false)
+                switch completion {
+                case .failure(let error):
+                    self?.state = .failure(error)
+                case .finished:
+                    break
+                }
+            } receiveValue: { [weak self] response in
+                self?.dogs = response.message
+                self?.state = .loaded
+            }
+            .store(in: &storage)
     }
 }
