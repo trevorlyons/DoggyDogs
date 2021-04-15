@@ -7,7 +7,21 @@
 
 import Foundation
 
+// Repeating more or less the same custom decoder from DogListModel to make sure the message key
+// is properly decoded.
 struct DogDetailsModel: Decodable {
-    let message: [String]
-    let status: String
+    let dogImages: [String]?
+    let errorMessage: String?
+    let status: DogStatus
+    
+    enum CodingKeys: String, CodingKey {
+        case message, status
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.dogImages = try? container.decodeIfPresent([String].self, forKey: .message)
+        self.errorMessage = try? container.decodeIfPresent(String.self, forKey: .message)
+        self.status = try container.decode(DogStatus.self, forKey: .status)
+    }
 }

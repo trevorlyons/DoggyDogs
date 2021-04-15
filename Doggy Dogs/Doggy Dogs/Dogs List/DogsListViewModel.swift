@@ -17,7 +17,7 @@ class DogsListViewModel: ObservableObject {
     }
     
     @Published private(set) var state: State = .loading(true)
-    private(set) lazy var dogs = [String: [String]]()
+    private(set) lazy var dogs = [String]()
     private lazy var storage = Set<AnyCancellable>()
     private let repository: DogListRepositoryProtocol
     
@@ -40,8 +40,8 @@ class DogsListViewModel: ObservableObject {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] response in
-                self?.dogs = response.message
+            } receiveValue: { [weak self] dogs in
+                self?.dogs = dogs
                 self?.state = .loaded
             }
             .store(in: &storage)

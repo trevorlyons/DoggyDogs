@@ -10,6 +10,18 @@ import Combine
 
 enum DogNetworkError: Error {
     case invalidUrl
+    case responseError(String?)
+}
+
+extension DogNetworkError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .invalidUrl:
+            return "This url is a bit doggy..."
+        case .responseError(let message):
+            return message
+        }
+    }
 }
 
 class DogNetworking {

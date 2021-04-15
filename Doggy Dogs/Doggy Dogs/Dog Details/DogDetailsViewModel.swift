@@ -42,8 +42,8 @@ class DogDetailsViewModel: ObservableObject {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] response in
-                self?.dogImages = response.message
+            } receiveValue: { [weak self] dogImages in
+                self?.dogImages = dogImages
                 self?.state = .loaded
             }
             .store(in: &storage)
