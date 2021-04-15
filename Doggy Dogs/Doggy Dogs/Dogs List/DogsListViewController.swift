@@ -41,6 +41,7 @@ class DogsListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
+        tableView.register(cell: DogListTableViewCell.self)
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
     }
     
@@ -60,8 +61,8 @@ class DogsListViewController: UIViewController {
             // TODO: show and hide spinner for loading
             print(isLoading)
         case .failure(let error):
-            print(error)
             // TODO: show alert for containing error
+            print(error)
         }
     }
 }
@@ -71,7 +72,15 @@ class DogsListViewController: UIViewController {
 extension DogsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: push to dog details
+        // I would normally abstract my navigation but, as discussed in our previous call,
+        // I normally use an internal framework for that. I am excited to play with coordinators
+        // but I decided this may not be the time for that 🤝
+        let breed = viewModel.dogs[indexPath.row]
+        let viewModel = DogDetailsViewModel(breed: breed)
+        let viewController = DogDetailsViewController(viewModel: viewModel)
+        // For the sake of simplicity, I am just assuming that everyone in the world has ios 13+
+        // and can dismiss this presented view with a gesture 🚀
+        self.present(viewController, animated: true)
     }
 }
 
@@ -84,7 +93,9 @@ extension DogsListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: custom cell
-        return UITableViewCell()
+        let cell = tableView.dequeue(cell: DogListTableViewCell.self, indexPath: indexPath)
+        let dog = viewModel.dogs[indexPath.row]
+        cell.configure(with: dog)
+        return cell
     }
 }

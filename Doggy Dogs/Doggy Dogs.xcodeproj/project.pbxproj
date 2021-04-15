@@ -10,6 +10,10 @@
 		0D72152C547DFC7F24EBEAA4 /* Pods_Doggy_Dogs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2F6BBDB456EC6C095C8198 /* Pods_Doggy_Dogs.framework */; };
 		1737738CEFC73C66C8B3E53F /* Pods_Doggy_DogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26BB66FB0AE8CD6FF8E41D6 /* Pods_Doggy_DogsTests.framework */; };
 		7CB3039B89FF3428FD140CFA /* Pods_Doggy_Dogs_Doggy_DogsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF673965ED463FBC8A78763C /* Pods_Doggy_Dogs_Doggy_DogsUITests.framework */; };
+		8C78212A26289F7C0000F506 /* UITableView+Dogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C78212926289F7C0000F506 /* UITableView+Dogs.swift */; };
+		8C7821302628A02F0000F506 /* DogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */; };
+		8C7821312628A02F0000F506 /* DogListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */; };
+		8C78213A2628A32C0000F506 /* UIColor+Dogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7821392628A32C0000F506 /* UIColor+Dogs.swift */; };
 		8CDF67E326274C7E005A7FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF67E226274C7E005A7FDF /* AppDelegate.swift */; };
 		8CDF67E526274C7E005A7FDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF67E426274C7E005A7FDF /* SceneDelegate.swift */; };
 		8CDF67EC26274C7F005A7FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF67EB26274C7F005A7FDF /* Assets.xcassets */; };
@@ -52,6 +56,10 @@
 		28742B45AD180D74A4F29861 /* Pods-Doggy Dogs-Doggy DogsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggy Dogs-Doggy DogsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Doggy Dogs-Doggy DogsUITests/Pods-Doggy Dogs-Doggy DogsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2988495D34E431A01FC3C630 /* Pods-Doggy DogsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggy DogsTests.debug.xcconfig"; path = "Target Support Files/Pods-Doggy DogsTests/Pods-Doggy DogsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		760C9C502D0924B70756F8BF /* Pods-Doggy DogsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Doggy DogsTests.release.xcconfig"; path = "Target Support Files/Pods-Doggy DogsTests/Pods-Doggy DogsTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C78212926289F7C0000F506 /* UITableView+Dogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Dogs.swift"; sourceTree = "<group>"; };
+		8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListTableViewCell.swift; sourceTree = "<group>"; };
+		8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogListTableViewCell.xib; sourceTree = "<group>"; };
+		8C7821392628A32C0000F506 /* UIColor+Dogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dogs.swift"; sourceTree = "<group>"; };
 		8CDF67DF26274C7E005A7FDF /* Doggy Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doggy Dogs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDF67E226274C7E005A7FDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CDF67E426274C7E005A7FDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +129,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C78212826289F4C0000F506 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C78212926289F7C0000F506 /* UITableView+Dogs.swift */,
+				8C7821392628A32C0000F506 /* UIColor+Dogs.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8C7821352628A03D0000F506 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */,
+				8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8CDF67D626274C7E005A7FDF = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +177,7 @@
 				8CDF681B26274CFB005A7FDF /* Dogs List */,
 				8CDF681C26274D07005A7FDF /* Dog Details */,
 				8CDF685B26275C82005A7FDF /* Networking */,
+				8C78212826289F4C0000F506 /* Extensions */,
 				8CDF67EB26274C7F005A7FDF /* Assets.xcassets */,
 				8CDF67ED26274C7F005A7FDF /* LaunchScreen.storyboard */,
 				8CDF67F026274C7F005A7FDF /* Info.plist */,
@@ -179,6 +206,7 @@
 		8CDF681B26274CFB005A7FDF /* Dogs List */ = {
 			isa = PBXGroup;
 			children = (
+				8C7821352628A03D0000F506 /* Cells */,
 				8CDF681D26274D2D005A7FDF /* DogsListViewController.swift */,
 				8CDF681E26274D2D005A7FDF /* DogsListViewController.xib */,
 				8CDF683A2627575B005A7FDF /* DogsListViewModel.swift */,
@@ -333,6 +361,7 @@
 				8CDF682F26274D64005A7FDF /* DogDetailsViewController.xib in Resources */,
 				8CDF682026274D2D005A7FDF /* DogsListViewController.xib in Resources */,
 				8CDF67EF26274C7F005A7FDF /* LaunchScreen.storyboard in Resources */,
+				8C7821312628A02F0000F506 /* DogListTableViewCell.xib in Resources */,
 				8CDF67EC26274C7F005A7FDF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,7 +490,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C78212A26289F7C0000F506 /* UITableView+Dogs.swift in Sources */,
+				8C78213A2628A32C0000F506 /* UIColor+Dogs.swift in Sources */,
 				8CDF682E26274D64005A7FDF /* DogDetailsViewController.swift in Sources */,
+				8C7821302628A02F0000F506 /* DogListTableViewCell.swift in Sources */,
 				8CDF67E326274C7E005A7FDF /* AppDelegate.swift in Sources */,
 				8CDF686526275CF7005A7FDF /* DogService.swift in Sources */,
 				8CDF685D26275C9B005A7FDF /* DogNetworking.swift in Sources */,
