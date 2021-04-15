@@ -8,9 +8,12 @@
 import UIKit
 import Combine
 
+private let EdgeInset: CGFloat = 5
+
 class DogDetailsViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var headerLabel: UILabel!
     
     private let viewModel: DogDetailsViewModel
     private var cancellable: AnyCancellable?
@@ -38,10 +41,19 @@ class DogDetailsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func setup() {
-        // TODO: add custom flowlayout
+        // collectionView setup
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = EdgeInset
+        layout.minimumInteritemSpacing = EdgeInset
+        collectionView.setCollectionViewLayout(layout, animated: true)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundColor = .clear
+        collectionView.register(cell: DogDetailsCollectionViewCell.self)
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
+        // header setup
+        headerLabel.text = viewModel.headerText
     }
     
     private func bind() {
@@ -60,9 +72,24 @@ class DogDetailsViewController: UIViewController {
             // TODO: show and hide spinner for loading
             print(isLoading)
         case .failure(let error):
-            print(error)
             // TODO: show alert for containing error
+            print(error)
         }
+    }
+}
+
+// MARK: - CollectionView FlowLayout Methods
+
+extension DogDetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: EdgeInset, left: EdgeInset, bottom: EdgeInset, right: EdgeInset)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = collectionViewLayout as? UICollectionViewFlowLayout
+        let width = (collectionView.frame.width - ((layout?.minimumInteritemSpacing ?? EdgeInset) * 3)) / 2
+        return CGSize(width: width, height: width)
     }
 }
 
@@ -75,7 +102,9 @@ extension DogDetailsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: custom cell
-        return UICollectionViewCell()
+        let cell = collectionView.dequeue(cell: DogDetailsCollectionViewCell.self, indexPath: indexPath)
+        let dogImage = viewModel.dogImages[indexPath.row]
+        cell.configure(with: dogImage)
+        return cell
     }
 }

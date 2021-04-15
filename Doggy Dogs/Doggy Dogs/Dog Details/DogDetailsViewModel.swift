@@ -22,6 +22,8 @@ class DogDetailsViewModel: ObservableObject {
     private let repository: DogDetailsRepositoryProtocol
     private let breed: String
     
+    var headerText: String { "What lovely \(breed)s" }
+    
     // MARK: Initialiser
     
     init(repository: DogDetailsRepositoryProtocol = DogDetailsRepository(), breed: String) {

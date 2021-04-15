@@ -14,6 +14,9 @@
 		8C7821302628A02F0000F506 /* DogListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */; };
 		8C7821312628A02F0000F506 /* DogListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */; };
 		8C78213A2628A32C0000F506 /* UIColor+Dogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7821392628A32C0000F506 /* UIColor+Dogs.swift */; };
+		8C7821412628B32E0000F506 /* DogDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C78213F2628B32E0000F506 /* DogDetailsCollectionViewCell.swift */; };
+		8C7821422628B32E0000F506 /* DogDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C7821402628B32E0000F506 /* DogDetailsCollectionViewCell.xib */; };
+		8C7821472628B48A0000F506 /* UICollectionView+Dogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7821462628B48A0000F506 /* UICollectionView+Dogs.swift */; };
 		8CDF67E326274C7E005A7FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF67E226274C7E005A7FDF /* AppDelegate.swift */; };
 		8CDF67E526274C7E005A7FDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF67E426274C7E005A7FDF /* SceneDelegate.swift */; };
 		8CDF67EC26274C7F005A7FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF67EB26274C7F005A7FDF /* Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListTableViewCell.swift; sourceTree = "<group>"; };
 		8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogListTableViewCell.xib; sourceTree = "<group>"; };
 		8C7821392628A32C0000F506 /* UIColor+Dogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Dogs.swift"; sourceTree = "<group>"; };
+		8C78213F2628B32E0000F506 /* DogDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
+		8C7821402628B32E0000F506 /* DogDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DogDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
+		8C7821462628B48A0000F506 /* UICollectionView+Dogs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Dogs.swift"; sourceTree = "<group>"; };
 		8CDF67DF26274C7E005A7FDF /* Doggy Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Doggy Dogs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CDF67E226274C7E005A7FDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CDF67E426274C7E005A7FDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 		8C78212826289F4C0000F506 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8C7821462628B48A0000F506 /* UICollectionView+Dogs.swift */,
 				8C78212926289F7C0000F506 /* UITableView+Dogs.swift */,
 				8C7821392628A32C0000F506 /* UIColor+Dogs.swift */,
 			);
@@ -143,6 +150,15 @@
 			children = (
 				8C78212E2628A02F0000F506 /* DogListTableViewCell.swift */,
 				8C78212F2628A02F0000F506 /* DogListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		8C78213E2628B3110000F506 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				8C78213F2628B32E0000F506 /* DogDetailsCollectionViewCell.swift */,
+				8C7821402628B32E0000F506 /* DogDetailsCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -219,6 +235,7 @@
 		8CDF681C26274D07005A7FDF /* Dog Details */ = {
 			isa = PBXGroup;
 			children = (
+				8C78213E2628B3110000F506 /* Cells */,
 				8CDF682C26274D64005A7FDF /* DogDetailsViewController.swift */,
 				8CDF682D26274D64005A7FDF /* DogDetailsViewController.xib */,
 				8CDF68442627577E005A7FDF /* DogDetailsViewModel.swift */,
@@ -362,6 +379,7 @@
 				8CDF682026274D2D005A7FDF /* DogsListViewController.xib in Resources */,
 				8CDF67EF26274C7F005A7FDF /* LaunchScreen.storyboard in Resources */,
 				8C7821312628A02F0000F506 /* DogListTableViewCell.xib in Resources */,
+				8C7821422628B32E0000F506 /* DogDetailsCollectionViewCell.xib in Resources */,
 				8CDF67EC26274C7F005A7FDF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +512,7 @@
 				8C78213A2628A32C0000F506 /* UIColor+Dogs.swift in Sources */,
 				8CDF682E26274D64005A7FDF /* DogDetailsViewController.swift in Sources */,
 				8C7821302628A02F0000F506 /* DogListTableViewCell.swift in Sources */,
+				8C7821412628B32E0000F506 /* DogDetailsCollectionViewCell.swift in Sources */,
 				8CDF67E326274C7E005A7FDF /* AppDelegate.swift in Sources */,
 				8CDF686526275CF7005A7FDF /* DogService.swift in Sources */,
 				8CDF685D26275C9B005A7FDF /* DogNetworking.swift in Sources */,
@@ -504,6 +523,7 @@
 				8CDF681F26274D2D005A7FDF /* DogsListViewController.swift in Sources */,
 				8CDF684A2627578C005A7FDF /* DogDetailsRepository.swift in Sources */,
 				8CDF67E526274C7E005A7FDF /* SceneDelegate.swift in Sources */,
+				8C7821472628B48A0000F506 /* UICollectionView+Dogs.swift in Sources */,
 				8CDF68452627577E005A7FDF /* DogDetailsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
